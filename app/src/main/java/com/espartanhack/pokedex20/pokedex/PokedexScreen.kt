@@ -17,17 +17,18 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.Alignment
 import androidx.navigation.NavController
 import com.espartanhack.pokedex20.R
-import com.espartanhack.pokedex20.core.presentation.navigation.ScreenPokedex
 
+// Definir el color rojo flojo (si no está definido)
+val lightRed = Color(0xFFF8C8C8) // Ajusta el código hexadecimal si es necesario
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun PokedexScreen(navController: NavController) {
     Box(
         modifier = Modifier.fillMaxSize() // Caja principal para toda la pantalla
     ) {
         // Imagen de fondo
         Image(
-            painter = painterResource(id = R.drawable.pokedex_fondo), // Cambia al recurso de tu imagen
+            painter = painterResource(id = R.drawable.pokedex_pokedex), // Cambia al recurso de tu imagen
             contentDescription = "Imagen de fondo",
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize()
@@ -44,8 +45,7 @@ fun HomeScreen(navController: NavController) {
             // Botón para mostrar la lista de Pokémon capturados
             Button(
                 onClick = {
-                    navController.navigate(ScreenPokedex) // Navegar hacia atrás
-
+                    // Acción al pulsar el botón
                 },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = lightRed, // Fondo rojo flojo
@@ -56,7 +56,7 @@ fun HomeScreen(navController: NavController) {
                     .height(60.dp) // Altura del botón
             ) {
                 Text(
-                    text = "Pokédex",
+                    text = "Veure Pokémon Capturats",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )
@@ -67,6 +67,7 @@ fun HomeScreen(navController: NavController) {
             // Botón para volver a la pantalla anterior (HomeScreen)
             Button(
                 onClick = {
+                    navController.navigateUp() // Navegar hacia atrás
                 },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = lightRed, // Fondo rojo flojo
@@ -77,7 +78,7 @@ fun HomeScreen(navController: NavController) {
                     .height(60.dp) // Altura del botón
             ) {
                 Text(
-                    text = "Equips",
+                    text = "Volver Atrás",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )

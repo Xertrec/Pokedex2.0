@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.espartanhack.pokedex20.core.presentation.navigation.NavGraph
 import com.espartanhack.pokedex20.core.presentation.theme.Pokedex20Theme
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             Pokedex20Theme {
-                NavGraph()
+                NavGraph(rememberNavController())
             }
         }
     }

@@ -7,3 +7,6 @@ object ScreenHome
 
 @Serializable
 object ScreenScan
+
+@Serializable
+object ScreenPokedex
