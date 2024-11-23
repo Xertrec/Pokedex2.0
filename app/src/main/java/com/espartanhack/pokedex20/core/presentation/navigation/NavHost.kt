@@ -22,7 +22,7 @@ fun NavGraph(navController: NavHostController) {
         }
 
         composable<ScreenScan> {
-            ScanScreen()
+            ScanScreen(navController)
         }
         composable<ScreenPokedex> {
             PokedexScreen(navController)
