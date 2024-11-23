@@ -2,20 +2,33 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    alias(libs.plugins.dagger.hilt)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
 }
 
 android {
     namespace = "com.espartanhack.pokedex20"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.espartanhack.pokedex20"
         minSdk = 29
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        ksp {
+//            arg("room.schemaLocation", "$projectDir/schemas")
+            arg("room.generateKotlin", "true")
+        }
+
+        room {
+            schemaDirectory("$projectDir/schemas")
+        }
     }
 
     buildTypes {
@@ -43,6 +56,18 @@ dependencies {
 
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
+
+    // ROOM dependencies
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+
+    // Dependency injection dependencies
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.hilt.work)
+    implementation(libs.dagger.hilt)
+    ksp(libs.dagger.hilt.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
