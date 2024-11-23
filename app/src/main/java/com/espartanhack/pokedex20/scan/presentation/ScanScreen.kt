@@ -24,10 +24,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.espartanhack.pokedex20.core.utils.QrCodeAnalyzer
+import com.espartanhack.pokedex20.core.domain.utils.QrCodeAnalyzer
 import com.espartanhack.pokedex20.scan.presentation.components.ScanViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 @Composable
 fun ScanScreen(

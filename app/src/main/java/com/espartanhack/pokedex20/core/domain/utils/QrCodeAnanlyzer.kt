@@ -1,4 +1,4 @@
-package com.espartanhack.pokedex20.core.utils
+package com.espartanhack.pokedex20.core.domain.utils
 
 import android.graphics.ImageFormat
 import androidx.camera.core.ImageAnalysis
