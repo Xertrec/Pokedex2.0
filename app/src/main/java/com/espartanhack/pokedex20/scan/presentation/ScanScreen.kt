@@ -34,7 +34,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.espartanhack.pokedex20.R
 import com.espartanhack.pokedex20.core.presentation.navigation.ScreenHome
-import com.espartanhack.pokedex20.core.utils.QrCodeAnalyzer
+import com.espartanhack.pokedex20.core.domain.utils.QrCodeAnalyzer
 import com.espartanhack.pokedex20.pokedex.lightRed
 import com.espartanhack.pokedex20.scan.presentation.components.ScanViewModel
 
@@ -58,6 +58,9 @@ fun ScanScreen(
                     result = viewModel::processQrData
                 )
             },
+        )
+
+        Column(
             modifier = Modifier
                 .fillMaxSize()
         )
