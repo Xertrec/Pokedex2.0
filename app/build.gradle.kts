@@ -78,6 +78,13 @@ dependencies {
     // QR Code dependencies
     implementation(libs.zxing.core)
 
+    // Ktor dependencies
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.cio)
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.client.serialization)
+
     // Dependency injection dependencies
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.hilt.work)

@@ -55,17 +55,6 @@ class QrCodeAnalyzer(
                 rotationDegrees = rotationDegrees
             )
 
-            // Si no se encuentra un código QR, invierte los colores e intenta decodificar de nuevo
-            if (result == null) {
-                val invertedData = invertColors(data = data, width = width, height = height)
-                result = decodeImage(
-                    data = invertedData,
-                    width = width,
-                    height = height,
-                    rotationDegrees = rotationDegrees
-                )
-            }
-
             result?.let { result ->
                 onQrCodeScanned(result.text)
             }

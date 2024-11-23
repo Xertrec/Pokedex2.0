@@ -42,6 +42,7 @@ fun ScanScreen(
         modifier = Modifier.fillMaxSize(),
         containerColor = MaterialTheme.colorScheme.background
     ) { contentPadding ->
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
