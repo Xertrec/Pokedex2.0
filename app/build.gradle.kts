@@ -75,6 +75,9 @@ dependencies {
     implementation(libs.androidx.camera.lifecycle)
     implementation(libs.androidx.camera.view)
 
+    // Datastore dependencies
+    implementation(libs.androidx.datastore.preferences)
+
     // QR Code dependencies
     implementation(libs.zxing.core)
 
