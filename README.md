@@ -1,4 +1,3 @@
-```markdown
 # **Make Your Mark Challenge!**
 
 ## **Hola, entrenador!**
