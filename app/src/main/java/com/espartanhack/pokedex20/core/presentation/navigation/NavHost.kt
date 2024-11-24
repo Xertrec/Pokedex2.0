@@ -32,7 +32,7 @@ fun NavGraph(
             PokedexScreen(navController)
         }
         composable<ScreenPokemonCapturados> {
-            PokemonCapturadosScreen(navController)
+            PokemonCapturadosScreen(navController = navController)
         }
         composable<ScreenCapturarPokemon> {
             CapturarPokemonScreen(navController = navController)

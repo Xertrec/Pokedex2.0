@@ -1,12 +1,14 @@
 package com.espartanhack.pokedex20.capturarpokemon
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -45,16 +47,26 @@ fun CapturarPokemonScreen(
         )
 
         LazyColumn {
+
+
             items(
                 items = zones,
-                key = { zone -> zone.zone.id }
+                key = { zone -> zone.zone.name } // Si tienes un identificador único
             ) { zone ->
-                TODO("Con zone tienes el cooldown, nombre y lo que quieras")
+                // Muestra el nombre de la zona
                 Text(
-                    zone.zone.name
+
+                    text = zone.zone.name, // Accede al nombre de la zona
+                    color = Color.Black,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.bodyLarge, // Aplica estilo
+                    modifier = Modifier
+                        .padding(16.dp) // Margen alrededor del texto
                 )
             }
         }
+
 
         Box(
             modifier = Modifier
