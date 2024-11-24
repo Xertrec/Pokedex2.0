@@ -63,7 +63,7 @@ class CapturarPokemonViewModel @Inject constructor(
                 added.value = true
             } else {
                 added.value = false
-                throw JsonConvertException("No pokemon catched")
+                failure.value = Failure.NO_POKEMON_CATCHED
             }
             zoneDaoDb.upsertEvent(
                 EventsEntity(

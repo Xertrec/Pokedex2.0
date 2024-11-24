@@ -46,7 +46,7 @@ fun CapturarPokemonScreen(
     val scope = rememberCoroutineScope()
 
     val teamId by viewModel.teamId.collectAsStateWithLifecycle()
-    if (teamId == null) return
+    if (teamId.isNullOrEmpty()) return
     val zones by viewModel.getZones(teamId!!).collectAsStateWithLifecycle()
 
     val added by viewModel.added.collectAsStateWithLifecycle()
