@@ -1,0 +1,373 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0" version="24.8.9">
+  <diagram name="第 1 页" id="5XDfNe8h2tSXQ3YGx3B-">
+    <mxGraphModel dx="569" dy="724" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-1" value="pokemon" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="145" y="200" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-2" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="115" y="160" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-3" value="name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="115" y="140" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-4" value="cries" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="120" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-5" value="height" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="100" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-8" value="" style="endArrow=none;html=1;rounded=0;exitX=0.064;exitY=-0.002;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="105" y="220" as="sourcePoint" />
+            <mxPoint x="135" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-9" value="image" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="105" y="80" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-10" value="weight" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="60" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-12" value="evolves_to_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="30" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-20" value="pokemon_uuid_list" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="265" y="110" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-21" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="265" y="80" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-22" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-20">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="150" as="sourcePoint" />
+            <mxPoint x="290" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-23" value="event_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="258.75" y="60" width="62.5" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-24" value="pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="253.75" y="40" width="76.25" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-25" value="stats" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="59" y="480" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-27" value="base_stat" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="350" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-28" value="stats_url" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="260" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-33" value="stat_name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="290" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-34" value="effort" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="320" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-35" value="pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-36" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="410" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-38" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="81.27000000000002" y="474.14" as="sourcePoint" />
+            <mxPoint x="73.73" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-365" value="species" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="99" y="830" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-366" value="species_name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="700" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-369" value="species_url" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="75" y="670" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-370" value="pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="730" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-371" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="760" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-372" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-365">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="121.27000000000002" y="824.14" as="sourcePoint" />
+            <mxPoint x="113.73" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-373" value="locatio_area_encounters" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="277.75" y="845" width="142.25" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-374" value="location_name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="243.75" y="715" width="96.25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-378" value="pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="258.75" y="745" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-379" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="268.75" y="775" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-380" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-373">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300.02000000000004" y="839.14" as="sourcePoint" />
+            <mxPoint x="292.48" y="805" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-381" value="abilities" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="149" y="1190" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-382" value="ability_name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="135" y="1060" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-383" value="slot" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="135" y="970" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-384" value="is_hidden" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="135" y="1000" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-385" value="ability_url" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="135" y="1030" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-386" value="pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="1090" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-387" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="1120" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-388" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-381">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="171.27000000000004" y="1184.1399999999999" as="sourcePoint" />
+            <mxPoint x="163.73000000000002" y="1150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-389" value="moves" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="312.75" y="1190" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-390" value="move_name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="298.75" y="1060" width="91.25" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-393" value="move_url" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="298.75" y="1030" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-394" value="pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="293.75" y="1090" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-395" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="303.75" y="1120" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-396" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-389">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="335.02000000000004" y="1184.1399999999999" as="sourcePoint" />
+            <mxPoint x="327.48" y="1150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-397" value="events" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="539" y="1145" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-398" value="captured_pokemon_uuid" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="488.75" y="1015" width="155" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-402" value="team_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="1045" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-403" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1075" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-404" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-397">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="561.27" y="1139.1399999999999" as="sourcePoint" />
+            <mxPoint x="553.73" y="1105" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-405" value="tournaments" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="589" y="1510" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-406" value="can_register" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="562.5" y="1380" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-409" value="winner" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="575" y="1350" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-410" value="time" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="1410" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-411" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="1440" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-412" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-405">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="611.27" y="1504.1399999999999" as="sourcePoint" />
+            <mxPoint x="603.73" y="1470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-413" value="types" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="699" y="1460" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-414" value="slot" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="685" y="1330" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-416" value="type_url" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="685" y="1270" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-417" value="type_name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="685" y="1300" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-418" value="pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1360" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-419" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="1390" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-420" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-413">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="721.27" y="1454.1399999999999" as="sourcePoint" />
+            <mxPoint x="713.73" y="1420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-421" value="tournamets_combats" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="670" width="130" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-422" value="combat_details" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="675" y="560" width="115" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-426" value="tournaments_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="590" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-427" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="620" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-428" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-421">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="731.27" y="684.14" as="sourcePoint" />
+            <mxPoint x="723.73" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-429" value="teams" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="639" y="380" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-430" value="pve_score" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="625" y="250" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-431" value="is_active" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="625" y="160" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-432" value="pokedex_score" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="190" width="105" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-433" value="pvp_score" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="625" y="220" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-434" value="name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="280" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-435" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="310" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-436" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-429">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="661.27" y="374.14" as="sourcePoint" />
+            <mxPoint x="653.73" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-437" value="last_request_by_team" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="263.75" y="530" width="125" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-438" value="team_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="275" y="400" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-441" value="request_details" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="268.75" y="370" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-442" value="zone_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="430" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-443" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="460" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-444" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-437">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="311.27000000000004" y="524.14" as="sourcePoint" />
+            <mxPoint x="303.73" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-445" value="zones" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="459" y="530" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-446" value="coldown_period" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="422.5" y="400" width="105" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-450" value="name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="430" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-451" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="460" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-452" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-445">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="481.27000000000004" y="524.14" as="sourcePoint" />
+            <mxPoint x="473.73" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-453" value="stats" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="509" y="909" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-454" value="base_stat" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="779" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-455" value="stats_url" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="689" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-456" value="stat_name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="719" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-457" value="effort" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="749" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-458" value="pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="809" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-459" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="839" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-460" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-453">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="531.27" y="903.14" as="sourcePoint" />
+            <mxPoint x="523.73" y="869" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-461" value="stats" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="409" y="1550" width="76" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-462" value="base_stat" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="395" y="1420" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-463" value="stats_url" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="395" y="1330" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-464" value="stat_name" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="395" y="1360" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-465" value="effort" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="395" y="1390" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-466" value="pokemon_id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="1450" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-467" value="id" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1480" width="55" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_VYwV6qlUI4kmloXaUoU-468" value="" style="endArrow=none;html=1;rounded=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_VYwV6qlUI4kmloXaUoU-461">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="431.27000000000004" y="1544.1399999999999" as="sourcePoint" />
+            <mxPoint x="423.73" y="1510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
