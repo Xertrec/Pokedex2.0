@@ -1,0 +1,122 @@
+
+CREATE TABLE events (
+    id SERIAL PRIMARY KEY, -- ID único para cada evento
+    team_id VARCHAR NOT NULL REFERENCES teams(id), -- Relación con teams
+    captured_pokemon_uuid UUID NOT NULL -- Identificador único para el Pokémon capturado
+);
+
+CREATE TABLE pokemon_uuid_list (
+    id SERIAL PRIMARY KEY,
+    event_id INT NOT NULL REFERENCES events(id), -- Relación con events
+    pokemon_id INT NOT NULL REFERENCES pokemon(id) -- Relación con pokemon
+);
+
+CREATE TABLE teams (
+    id VARCHAR PRIMARY KEY, -- ID único para cada equipo
+    name VARCHAR(255) NOT NULL, -- Nombre del equipo
+    pve_score INT DEFAULT 0, -- Puntaje PvE
+    pvp_score INT DEFAULT 0, -- Puntaje PvP
+    pokedex_score INT DEFAULT 0, -- Puntaje de Pokédex
+    is_active BOOLEAN NOT NULL DEFAULT TRUE -- Indicador de actividad
+);
+
+CREATE TABLE captured_pokemons (
+    id SERIAL PRIMARY KEY,
+    team_id VARCHAR NOT NULL REFERENCES teams(id), -- Relación con teams
+    pokemon_id INT NOT NULL REFERENCES pokemon(id) -- Relación con pokemon
+);
+
+CREATE TABLE tournaments (
+    id VARCHAR PRIMARY KEY, -- ID único para el torneo
+    time TIMESTAMP NOT NULL, -- Fecha y hora del torneo
+    can_register BOOLEAN NOT NULL DEFAULT FALSE, -- Indicador de si se pueden registrar equipos
+    winner VARCHAR REFERENCES teams(id) -- Equipo ganador (relación con teams)
+);
+
+CREATE TABLE tournament_teams (
+    id SERIAL PRIMARY KEY,
+    tournament_id VARCHAR NOT NULL REFERENCES tournaments(id), -- Relación con tournaments
+    team_id VARCHAR NOT NULL REFERENCES teams(id) -- Relación con teams
+);
+
+CREATE TABLE teams_positions (
+    id SERIAL PRIMARY KEY,
+    tournament_id VARCHAR NOT NULL REFERENCES tournaments(id), -- Relación con tournaments
+    team_id VARCHAR NOT NULL REFERENCES teams(id), -- Relación con teams
+    position INT NOT NULL -- Posición en el torneo
+);
+
+CREATE TABLE tournament_combats (
+    id SERIAL PRIMARY KEY,
+    tournament_id VARCHAR NOT NULL REFERENCES tournaments(id), -- Relación con tournaments
+    combat_details JSON NOT NULL -- Detalles del combate
+);
+
+CREATE TABLE pokemon (
+    id INT PRIMARY KEY, -- ID único para cada Pokémon
+    name VARCHAR(255) NOT NULL, -- Nombre del Pokémon
+    cries TEXT, -- Descripción de gritos o sonidos
+    height INT NOT NULL, -- Altura del Pokémon
+    image TEXT, -- URL de la imagen
+    weight INT NOT NULL, -- Peso del Pokémon
+    evolves_to_id INT REFERENCES pokemon(id) -- Relación para evolución
+);
+
+CREATE TABLE location_area_encounters (
+    id SERIAL PRIMARY KEY,
+    pokemon_id INT NOT NULL REFERENCES pokemon(id), -- Relación con pokemon
+    location_name VARCHAR(255) NOT NULL -- Nombre de la ubicación
+);
+
+CREATE TABLE abilities (
+    id SERIAL PRIMARY KEY,
+    pokemon_id INT NOT NULL REFERENCES pokemon(id), -- Relación con pokemon
+    ability_name VARCHAR(255) NOT NULL, -- Nombre de la habilidad
+    ability_url TEXT, -- URL de la habilidad
+    is_hidden BOOLEAN NOT NULL DEFAULT FALSE, -- Indicador de si es habilidad oculta
+    slot INT NOT NULL -- Slot de la habilidad
+);
+
+CREATE TABLE moves (
+    id SERIAL PRIMARY KEY,
+    pokemon_id INT NOT NULL REFERENCES pokemon(id), -- Relación con pokemon
+    move_name VARCHAR(255) NOT NULL, -- Nombre del movimiento
+    move_url TEXT NOT NULL -- URL del movimiento
+);
+
+CREATE TABLE stats (
+    id SERIAL PRIMARY KEY,
+    pokemon_id INT NOT NULL REFERENCES pokemon(id), -- Relación con pokemon
+    base_stat INT NOT NULL, -- Estadística base
+    effort INT NOT NULL, -- Esfuerzo
+    stat_name VARCHAR(255) NOT NULL, -- Nombre de la estadística
+    stat_url TEXT -- URL de la estadística
+);
+
+CREATE TABLE types (
+    id SERIAL PRIMARY KEY,
+    pokemon_id INT NOT NULL REFERENCES pokemon(id), -- Relación con pokemon
+    slot INT NOT NULL, -- Slot del tipo
+    type_name VARCHAR(255) NOT NULL, -- Nombre del tipo
+    type_url TEXT -- URL del tipo
+);
+
+CREATE TABLE species (
+    id SERIAL PRIMARY KEY,
+    pokemon_id INT NOT NULL REFERENCES pokemon(id), -- Relación con pokemon
+    species_name VARCHAR(255) NOT NULL, -- Nombre de la especie
+    species_url TEXT -- URL de la especie
+);
+
+CREATE TABLE zones (
+    id VARCHAR PRIMARY KEY, -- ID único para la zona
+    name VARCHAR(255) NOT NULL, -- Nombre de la zona
+    cooldown_period INT NOT NULL -- Periodo de enfriamiento (en minutos, por ejemplo)
+);
+
+CREATE TABLE last_requests_by_team (
+    id SERIAL PRIMARY KEY,
+    zone_id VARCHAR NOT NULL REFERENCES zones(id), -- Relación con zones
+    team_id VARCHAR NOT NULL REFERENCES teams(id), -- Relación con teams
+    request_details JSON NOT NULL -- Detalles específicos de la solicitud
+);

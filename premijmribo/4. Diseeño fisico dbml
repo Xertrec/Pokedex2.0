@@ -1,0 +1,139 @@
+
+// Tabla events
+Table events {
+  id SERIAL [pk] // ID único para cada evento
+  team_id string [ref: > teams.id] // Relación con teams
+  captured_pokemon_uuid string
+}
+
+// Tabla pokemon_uuid_list (descomposición de events.pokemon_uuid_list)
+Table pokemon_uuid_list {
+  id SERIAL [pk]
+  event_id int [ref: > events.id] // Relación con events
+  pokemon_id int [ref: > pokemon.id] // Relación con pokemon
+}
+
+// Tabla teams
+Table teams {
+  id string [pk]
+  name string
+  pve_score int
+  pvp_score int
+  pokedex_score int
+  is_active boolean
+}
+
+// Tabla captured_pokemons (descomposición de teams.captured_pokemons)
+Table captured_pokemons {
+  id SERIAL [pk]
+  team_id string [ref: > teams.id] // Relación con teams
+  pokemon_id int [ref: > pokemon.id] // Relación con pokemon
+}
+
+// Tabla tournaments
+Table tournaments {
+  id string [pk]
+  time datetime
+  can_register boolean
+  winner string [ref: > teams.id] // Relación con el equipo ganador
+}
+
+// Tabla tournament_teams (descomposición de tournaments.teams)
+Table tournament_teams {
+  id SERIAL [pk]
+  tournament_id string [ref: > tournaments.id] // Relación con tournaments
+  team_id string [ref: > teams.id] // Relación con teams
+}
+
+// Tabla teams_positions (descomposición de tournaments.teams_positions)
+Table teams_positions {
+  id SERIAL [pk]
+  tournament_id string [ref: > tournaments.id] // Relación con tournaments
+  team_id string [ref: > teams.id] // Relación con teams
+  position int
+}
+
+// Tabla tournament_combats (descomposición de tournaments.tournament_combats)
+Table tournament_combats {
+  id SERIAL [pk]
+  tournament_id string [ref: > tournaments.id] // Relación con tournaments
+  combat_details json // Detalles del combate (podría expandirse si hay más estructura)
+}
+
+// Tabla pokemon
+Table pokemon {
+  id int [pk]
+  name string
+  cries string
+  height int
+  image string
+  weight int
+  evolves_to_id int [ref: > pokemon.id] // Relación con la misma tabla para evoluciones
+}
+
+// Tabla location_area_encounters (descomposición de pokemon.location_area_encounters)
+Table location_area_encounters {
+  id SERIAL [pk]
+  pokemon_id int [ref: > pokemon.id] // Relación con pokemon
+  location_name string
+}
+
+// Tabla abilities (descomposición de pokemon.abilities)
+Table abilities {
+  id SERIAL [pk]
+  pokemon_id int [ref: > pokemon.id] // Relación con pokemon
+  ability_name string
+  ability_url string
+  is_hidden boolean
+  slot int
+}
+
+// Tabla moves (descomposición de pokemon.moves)
+Table moves {
+  id SERIAL [pk]
+  pokemon_id int [ref: > pokemon.id] // Relación con pokemon
+  move_name string
+  move_url string
+}
+
+// Tabla stats (descomposición de pokemon.stats)
+Table stats {
+  id SERIAL [pk]
+  pokemon_id int [ref: > pokemon.id] // Relación con pokemon
+  base_stat int
+  effort int
+  stat_name string
+  stat_url string
+}
+
+// Tabla types (descomposición de pokemon.types)
+Table types {
+  id SERIAL [pk]
+  pokemon_id int [ref: > pokemon.id] // Relación con pokemon
+  slot int
+  type_name string
+  type_url string
+}
+
+// Tabla species (descomposición de pokemon.species)
+Table species {
+  id SERIAL [pk]
+  pokemon_id int [ref: > pokemon.id] // Relación con pokemon
+  species_name string
+  species_url string
+}
+
+// Tabla zones
+Table zones {
+  id string [pk]
+  name string
+  cooldown_period int
+}
+
+// Tabla last_requests_by_team (descomposición de zones.last_requests_by_team)
+Table last_requests_by_team {
+  id SERIAL [pk]
+  zone_id string [ref: > zones.id] // Relación con zones
+  team_id string [ref: > teams.id] // Relación con teams
+  request_details json // Detalles específicos de la solicitud
+}
