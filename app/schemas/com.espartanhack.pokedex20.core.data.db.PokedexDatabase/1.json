@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "fc6bf89bc2a8400e5a8e09bd17a6eef7",
+    "identityHash": "77cd88a07732707df2d8005dea539105",
     "entities": [
       {
         "tableName": "team_table",
@@ -558,7 +558,7 @@
       },
       {
         "tableName": "events_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `team_id` TEXT NOT NULL, `captured_pokemon_id` TEXT NOT NULL, FOREIGN KEY(`team_id`) REFERENCES `team_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`captured_pokemon_id`) REFERENCES `pokemon_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `team_id` TEXT NOT NULL, `captured_pokemon_id` TEXT, FOREIGN KEY(`team_id`) REFERENCES `team_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`captured_pokemon_id`) REFERENCES `pokemon_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -576,7 +576,7 @@
             "fieldPath": "capturedPokemonId",
             "columnName": "captured_pokemon_id",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -920,7 +920,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fc6bf89bc2a8400e5a8e09bd17a6eef7')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '77cd88a07732707df2d8005dea539105')"
     ]
   }
 }

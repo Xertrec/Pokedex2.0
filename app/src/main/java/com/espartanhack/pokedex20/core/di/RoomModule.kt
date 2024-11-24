@@ -2,7 +2,6 @@ package com.espartanhack.pokedex20.core.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.espartanhack.pokedex20.core.data.db.PokedexDatabase
 import dagger.Module
 import dagger.Provides
@@ -27,9 +26,13 @@ object RoomModule {
 
     @Singleton
     @Provides
-    fun providePokemonDao(chatsDatabase: PokedexDatabase) = chatsDatabase.pokemonDao()
+    fun providePokemonDao(pokedexDatabase: PokedexDatabase) = pokedexDatabase.pokemonDao()
 
     @Singleton
     @Provides
-    fun provideTeamDao(chatsDatabase: PokedexDatabase) = chatsDatabase.teamDao()
+    fun provideTeamDao(pokedexDatabase: PokedexDatabase) = pokedexDatabase.teamDao()
+
+    @Singleton
+    @Provides
+    fun provideZoneDao(pokedexDatabase: PokedexDatabase) = pokedexDatabase.zoneDao()
 }

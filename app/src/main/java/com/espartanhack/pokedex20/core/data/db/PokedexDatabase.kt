@@ -6,6 +6,7 @@ import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.espartanhack.pokedex20.core.data.db.dao.PokemonDao
 import com.espartanhack.pokedex20.core.data.db.dao.TeamDao
+import com.espartanhack.pokedex20.core.data.db.dao.ZoneDao
 import com.espartanhack.pokedex20.core.data.db.entities.EventsEntity
 import com.espartanhack.pokedex20.core.data.db.entities.PokemonAbilitiesEntity
 import com.espartanhack.pokedex20.core.data.db.entities.PokemonEntity
@@ -58,4 +59,5 @@ abstract class PokedexDatabase: RoomDatabase() {
 
     abstract fun pokemonDao(): PokemonDao
     abstract fun teamDao(): TeamDao
+    abstract fun zoneDao(): ZoneDao
 }

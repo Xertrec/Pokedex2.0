@@ -2,24 +2,29 @@ package com.espartanhack.pokedex20.scan.presentation.components
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.espartanhack.pokedex20.core.domain.pokeHackAPI.APITokens
-import com.espartanhack.pokedex20.core.domain.pokeHackAPI.entity.ZoneEntity
-import com.espartanhack.pokedex20.core.domain.pokeHackAPI.httpClient
+import com.espartanhack.pokedex20.core.data.db.dao.PokemonDao
+import com.espartanhack.pokedex20.core.data.db.dao.ZoneDao
+import com.espartanhack.pokedex20.core.data.db.entities.EventsEntity
+import com.espartanhack.pokedex20.core.data.db.entities.ZonesEntity
+import com.espartanhack.pokedex20.core.data.db.relations.CapturedPokemonsCrossRef
+import com.espartanhack.pokedex20.core.domain.pokeHackAPI.dao.EventsDao
+import com.espartanhack.pokedex20.core.domain.pokeHackAPI.dao.ZonesDao
+import dagger.Lazy
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.engine.cio.CIO
-import io.ktor.client.request.get
-import io.ktor.client.statement.request
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ScanViewModel @Inject constructor() : ViewModel() {
+class ScanViewModel @Inject constructor(
+    private val pokemonDao: Lazy<PokemonDao>,
+    private val zoneDaoDb: Lazy<ZoneDao>,
+    private val zoneDao: Lazy<ZonesDao>,
+    private val eventDao: Lazy<EventsDao>
+) : ViewModel() {
 
-    val data: StateFlow<String?>
+    val zoneId: StateFlow<String?>
         field = MutableStateFlow(value = null)
 
     /**
@@ -28,12 +33,36 @@ class ScanViewModel @Inject constructor() : ViewModel() {
      * @param data The data extracted from the Qr code.
      */
     fun processQrData(data: String) {
+        if (data == "") return
+
         viewModelScope.launch {
-            httpClient.use {
-                val zoneCode = data.split("/").last()
-                val zone: ZoneEntity = it.get("${APITokens.API_URL}/zones/$zoneCode").body()
-                this@ScanViewModel.data.value = zone.name
+            val zoneCode = data.split("/").last()
+            val zone = zoneDao.get().getZone(zoneCode)
+            zoneDaoDb.get().upsertZone(
+                ZonesEntity(
+                    id = zone.id,
+                    name = zone.name
+                )
+            )
+            val event = eventDao.get().postEvent(zone.id)
+            zoneDaoDb.get().upsertEvent(
+                EventsEntity(
+                    teamId = event.teamId,
+                    capturedPokemonId = event.catchedPokemonId
+                )
+            )
+            if (event.catchedPokemonId != null) {
+                pokemonDao.get().upsertCatchedPokemons(
+                    event.pokemonsEvent.map { pokemon ->
+                        CapturedPokemonsCrossRef(
+                            id = event.catchedPokemonId,
+                            teamId = event.teamId,
+                            pokemonId = pokemon.pokemonId
+                        )
+                    }
+                )
             }
+            this@ScanViewModel.zoneId.value = zone.id
         }
     }
 }

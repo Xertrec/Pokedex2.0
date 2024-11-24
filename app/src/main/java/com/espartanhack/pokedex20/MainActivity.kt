@@ -117,7 +117,7 @@ class MainActivity : ComponentActivity() {
                             isActive = team.isActive
                         )
                     )
-                    dbPokemonDao.get().upsertCatchedPokemon(
+                    dbPokemonDao.get().upsertCatchedPokemons(
                         team.capturedPokemon.map {
                             CapturedPokemonsCrossRef(
                                 id = it.id,

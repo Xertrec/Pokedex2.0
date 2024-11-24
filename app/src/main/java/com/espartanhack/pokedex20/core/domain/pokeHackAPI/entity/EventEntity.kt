@@ -8,9 +8,9 @@ data class EventEntity(
     @SerialName(value = "team_id")
     val teamId: String,
     @SerialName(value = "captured_pokemon_uuid")
-    val catchedPokemonId: Int,
+    val catchedPokemonId: String? = null,
     @SerialName(value = "pokemon_uuid_list")
-    val eventId: Array<PokemonList>
+    val pokemonsEvent: Array<PokemonList>
 )
 
 @Serializable

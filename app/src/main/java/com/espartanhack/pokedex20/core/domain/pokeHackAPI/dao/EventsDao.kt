@@ -22,17 +22,13 @@ class EventsDao @Inject constructor(
     suspend fun postEvent(zoneId: String): EventEntity {
         val client = httpClient
 
-        return try {
-            client.post("${APITokens.API_URL}/events/$zoneId") {
-                contentType(ContentType.Application.Json)
-                setBody("""
+        return client.post("${APITokens.API_URL}/events/$zoneId") {
+            contentType(ContentType.Application.Json)
+            setBody("""
                     {
                         "team_id": "${prefs.getString(Prefs.TEAM_ID).first()}"
                     }
                 """.trimIndent())
-            }.body<EventEntity>()
-        } finally {
-            client.close()
-        }
+        }.body<EventEntity>()
     }
 }

@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ZoneEntity(
     @SerialName(value = "id")
-    val id: String? = null,
+    val id: String,
     @SerialName("name")
     val name: String = "",
     @SerialName("cooldown_period")

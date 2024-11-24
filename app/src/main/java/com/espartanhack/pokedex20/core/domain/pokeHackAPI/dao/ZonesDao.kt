@@ -14,10 +14,6 @@ class ZonesDao @Inject constructor() {
     suspend fun getZone(zoneCode: String): ZoneEntity {
         val client = httpClient
 
-        return try {
-            client.get("${APITokens.API_URL}/zones/$zoneCode").body()
-        } finally {
-            client.close()
-        }
+        return client.get("${APITokens.API_URL}/zones/$zoneCode").body()
     }
 }

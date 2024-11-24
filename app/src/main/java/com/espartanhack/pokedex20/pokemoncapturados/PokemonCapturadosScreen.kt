@@ -1,4 +1,4 @@
-package com.espartanhack.pokedex20.core.pokemoncapturados
+package com.espartanhack.pokedex20.pokemoncapturados
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -21,7 +21,6 @@ import androidx.navigation.NavController
 import com.espartanhack.pokedex20.R
 import com.espartanhack.pokedex20.core.presentation.navigation.ScreenHome
 import com.espartanhack.pokedex20.core.presentation.navigation.ScreenScan
-import com.espartanhack.pokedex20.pokedex.HomeScreen
 import com.espartanhack.pokedex20.pokedex.lightRed
 
 

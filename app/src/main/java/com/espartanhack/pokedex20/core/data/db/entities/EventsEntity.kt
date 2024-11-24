@@ -28,5 +28,5 @@ data class EventsEntity(
     @ColumnInfo(name = "team_id")
     val teamId: String,
     @ColumnInfo(name = "captured_pokemon_id")
-    val capturedPokemonId: String,
+    val capturedPokemonId: String?,
 )

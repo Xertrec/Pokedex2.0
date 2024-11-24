@@ -21,7 +21,10 @@ interface PokemonDao {
     fun getCatchedPokemons(teamId: String): Flow<List<PokemonEntity>>
 
     @Upsert
-    suspend fun upsertCatchedPokemon(catchedPokemon: List<CapturedPokemonsCrossRef>)
+    suspend fun upsertCatchedPokemon(catchedPokemon: CapturedPokemonsCrossRef)
+
+    @Upsert
+    suspend fun upsertCatchedPokemons(catchedPokemon: List<CapturedPokemonsCrossRef>)
 
     @Upsert
     suspend fun upsertSpecies(species: List<PokemonSpeciesEntity>)

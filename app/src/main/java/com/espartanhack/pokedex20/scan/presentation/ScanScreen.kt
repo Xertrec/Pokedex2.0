@@ -1,8 +1,12 @@
 package com.espartanhack.pokedex20.scan.presentation
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
 import android.util.Size
 import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
@@ -35,6 +39,8 @@ import androidx.navigation.NavController
 import com.espartanhack.pokedex20.R
 import com.espartanhack.pokedex20.core.presentation.navigation.ScreenHome
 import com.espartanhack.pokedex20.core.domain.utils.QrCodeAnalyzer
+import com.espartanhack.pokedex20.core.presentation.navigation.ScreenCapturarPokemon
+import com.espartanhack.pokedex20.core.presentation.navigation.ScreenPokemonCapturados
 import com.espartanhack.pokedex20.pokedex.lightRed
 import com.espartanhack.pokedex20.scan.presentation.components.ScanViewModel
 
@@ -46,7 +52,13 @@ fun ScanScreen(
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
 
-    val qrData by viewModel.data.collectAsStateWithLifecycle()
+    var cameraPermissionGranted by remember {
+        mutableStateOf(
+            value = ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
+                    == PackageManager.PERMISSION_GRANTED
+        )
+    }
+    val zoneId by viewModel.zoneId.collectAsStateWithLifecycle()
 
     Box(modifier = Modifier.fillMaxSize()) {
         // Fondo de la pantalla con el diseño del Pokédex
@@ -89,9 +101,22 @@ fun ScanScreen(
     }
 
     // Mostrar un mensaje si se detecta un QR
-    LaunchedEffect(qrData) {
-        if (qrData != null) {
-            Toast.makeText(context, qrData, Toast.LENGTH_SHORT).show()
+    LaunchedEffect(zoneId) {
+        if (zoneId != null) {
+            navController.navigate(ScreenCapturarPokemon)
+        }
+    }
+
+    // Ask for camera permissions
+    val cameraPermissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission(),
+        onResult = { isGranted: Boolean ->
+            cameraPermissionGranted = isGranted
+        }
+    )
+    LaunchedEffect(Unit) {
+        if (!cameraPermissionGranted) {
+            cameraPermissionLauncher.launch(Manifest.permission.CAMERA)
         }
     }
 }
