@@ -28,4 +28,8 @@ object RoomModule {
     @Singleton
     @Provides
     fun providePokemonDao(chatsDatabase: PokedexDatabase) = chatsDatabase.pokemonDao()
+
+    @Singleton
+    @Provides
+    fun provideTeamDao(chatsDatabase: PokedexDatabase) = chatsDatabase.teamDao()
 }

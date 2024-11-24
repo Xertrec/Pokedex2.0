@@ -8,6 +8,7 @@ import com.espartanhack.pokedex20.core.data.db.entities.PokemonAbilitiesEntity
 import com.espartanhack.pokedex20.core.data.db.entities.PokemonEntity
 import com.espartanhack.pokedex20.core.data.db.entities.PokemonMovesEntity
 import com.espartanhack.pokedex20.core.data.db.entities.PokemonSpeciesEntity
+import com.espartanhack.pokedex20.core.data.db.relations.CapturedPokemonsCrossRef
 import com.espartanhack.pokedex20.core.data.db.relations.PokemonAbilitiesCrossRef
 import com.espartanhack.pokedex20.core.data.db.relations.PokemonMovesCrossRef
 import kotlinx.coroutines.flow.Flow
@@ -18,6 +19,9 @@ interface PokemonDao {
     @Transaction
     @Query("SELECT * FROM pokemon_table WHERE id in (SELECT pokemon_id FROM captured_pokemons_cross_ref WHERE team_id = :teamId)")
     fun getCatchedPokemons(teamId: String): Flow<List<PokemonEntity>>
+
+    @Upsert
+    suspend fun upsertCatchedPokemon(catchedPokemon: List<CapturedPokemonsCrossRef>)
 
     @Upsert
     suspend fun upsertSpecies(species: List<PokemonSpeciesEntity>)

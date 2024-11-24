@@ -41,11 +41,7 @@ class PokemonDao @Inject constructor(
     suspend fun getPokemons(): List<PokemonEntityApi> {
         val client = httpClient
 
-        return try {
-            client.get("${APITokens.API_URL}/pokemons").body()
-        } finally {
-            client.close()
-        }
+        return client.get("${APITokens.API_URL}/pokemons").body()
     }
 
     suspend fun getPokemon(pokemonId: String): PokemonEntityApi {

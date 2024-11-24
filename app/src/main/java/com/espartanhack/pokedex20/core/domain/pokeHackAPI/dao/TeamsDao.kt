@@ -22,10 +22,6 @@ class TeamsDao @Inject constructor(
     suspend fun getTeam(): TeamEntityApi {
         val client = httpClient
 
-        return try {
-            client.get("${APITokens.API_URL}/teams/${prefs.getString(Prefs.TEAM_ID).first()}").body()
-        } finally {
-            client.close()
-        }
+        return client.get("${APITokens.API_URL}/teams/${prefs.getString(Prefs.TEAM_ID)}").body()
     }
 }
