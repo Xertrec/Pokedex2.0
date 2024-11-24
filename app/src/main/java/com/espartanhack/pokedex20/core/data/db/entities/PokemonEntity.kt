@@ -16,6 +16,11 @@ import kotlinx.serialization.SerialName
             entity = PokemonEntity::class,
             parentColumns = ["id"],
             childColumns = ["evolves_to"]
+        ),
+        ForeignKey(
+            entity = PokemonSpeciesEntity::class,
+            parentColumns = ["species_name"],
+            childColumns = ["species_name"]
         )
     ]
 )
@@ -31,6 +36,8 @@ data class PokemonEntity(
     val height: Int,
     @ColumnInfo(name = "image")
     val image: String,
+    @ColumnInfo(name = "species_name")
+    val speciesName: String,
     @ColumnInfo(name = "weight")
     val weight: Int,
     @ColumnInfo(name = "evolves_to")

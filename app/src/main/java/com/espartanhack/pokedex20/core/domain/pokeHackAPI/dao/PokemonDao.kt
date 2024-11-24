@@ -2,8 +2,7 @@ package com.espartanhack.pokedex20.core.domain.pokeHackAPI.dao
 
 import com.espartanhack.pokedex20.core.domain.classes.Prefs
 import com.espartanhack.pokedex20.core.domain.pokeHackAPI.APITokens
-import com.espartanhack.pokedex20.core.domain.pokeHackAPI.entity.PokemonEntity
-import com.espartanhack.pokedex20.core.domain.pokeHackAPI.entity.TournamentsEntity
+import com.espartanhack.pokedex20.core.domain.pokeHackAPI.entity.PokemonEntityApi
 import com.espartanhack.pokedex20.core.domain.pokeHackAPI.httpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -39,7 +38,7 @@ class PokemonDao @Inject constructor(
         }
     }
 
-    suspend fun getPokemons(): List<PokemonEntity> {
+    suspend fun getPokemons(): List<PokemonEntityApi> {
         val client = httpClient
 
         return try {
@@ -49,7 +48,7 @@ class PokemonDao @Inject constructor(
         }
     }
 
-    suspend fun getPokemon(pokemonId: String): PokemonEntity {
+    suspend fun getPokemon(pokemonId: String): PokemonEntityApi {
         val client = httpClient
 
         return try {

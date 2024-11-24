@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ec7f7f82c41dd28ded3507073c6da263",
+    "identityHash": "fe314b352c16702a2afd9346685be503",
     "entities": [
       {
         "tableName": "team_table",
@@ -144,7 +144,7 @@
       },
       {
         "tableName": "pokemon_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `cries` TEXT NOT NULL, `height` INTEGER NOT NULL, `image` TEXT NOT NULL, `weight` INTEGER NOT NULL, `evolves_to` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`evolves_to`) REFERENCES `pokemon_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `cries` TEXT NOT NULL, `height` INTEGER NOT NULL, `image` TEXT NOT NULL, `species_name` TEXT NOT NULL, `weight` INTEGER NOT NULL, `evolves_to` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`evolves_to`) REFERENCES `pokemon_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`species_name`) REFERENCES `pokemon_species_table`(`species_name`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -173,6 +173,12 @@
           {
             "fieldPath": "image",
             "columnName": "image",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "speciesName",
+            "columnName": "species_name",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -206,6 +212,17 @@
             ],
             "referencedColumns": [
               "id"
+            ]
+          },
+          {
+            "table": "pokemon_species_table",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "species_name"
+            ],
+            "referencedColumns": [
+              "species_name"
             ]
           }
         ]
@@ -374,56 +391,6 @@
         },
         "indices": [],
         "foreignKeys": []
-      },
-      {
-        "tableName": "pokemon_species_cross_ref",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`pokemon_id` INTEGER NOT NULL, `species_name` TEXT NOT NULL, PRIMARY KEY(`pokemon_id`, `species_name`), FOREIGN KEY(`pokemon_id`) REFERENCES `pokemon_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`species_name`) REFERENCES `pokemon_species_table`(`species_name`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
-        "fields": [
-          {
-            "fieldPath": "pokemonId",
-            "columnName": "pokemon_id",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "speciesName",
-            "columnName": "species_name",
-            "affinity": "TEXT",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "autoGenerate": false,
-          "columnNames": [
-            "pokemon_id",
-            "species_name"
-          ]
-        },
-        "indices": [],
-        "foreignKeys": [
-          {
-            "table": "pokemon_table",
-            "onDelete": "NO ACTION",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "pokemon_id"
-            ],
-            "referencedColumns": [
-              "id"
-            ]
-          },
-          {
-            "table": "pokemon_species_table",
-            "onDelete": "NO ACTION",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "species_name"
-            ],
-            "referencedColumns": [
-              "species_name"
-            ]
-          }
-        ]
       },
       {
         "tableName": "pokemon_abilities_table",
@@ -948,7 +915,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ec7f7f82c41dd28ded3507073c6da263')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fe314b352c16702a2afd9346685be503')"
     ]
   }
 }

@@ -1,11 +1,10 @@
 package com.espartanhack.pokedex20.core.domain.pokeHackAPI.entity
 
-import androidx.room.ColumnInfo
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class TeamEntity(
+data class TeamEntityApi(
     @SerialName(value = "id")
     val id: String,
     @SerialName(value = "name")

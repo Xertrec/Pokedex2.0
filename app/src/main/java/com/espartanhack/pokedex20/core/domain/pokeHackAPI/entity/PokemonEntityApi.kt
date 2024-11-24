@@ -1,12 +1,13 @@
 package com.espartanhack.pokedex20.core.domain.pokeHackAPI.entity
 
+import com.espartanhack.pokedex20.core.data.db.entities.PokemonEntity
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PokemonEntity(
+data class PokemonEntityApi(
     @SerialName(value = "id")
-    val id: String,
+    val id: Int,
     @SerialName(value = "name")
     val name: String,
     @SerialName(value = "abilities")
@@ -16,7 +17,7 @@ data class PokemonEntity(
     @SerialName(value = "height")
     val height: Int,
     @SerialName(value = "location_area_encounters")
-    val locationEncounters: Array<Items>,
+    val locationEncounters: Array<String>,
     @SerialName(value = "evolves_to")
     val evolvesTo: EvolvesTo? = null,
     @SerialName(value = "moves")
@@ -31,7 +32,20 @@ data class PokemonEntity(
     val types: Array<Types>,
     @SerialName(value = "weight")
     val weight: Int,
-)
+) {
+    fun toDbEntity(): PokemonEntity {
+        return PokemonEntity(
+            id = id,
+            name = name,
+            cries = sound,
+            height = height,
+            speciesName = specie.name,
+            image = image,
+            weight = weight,
+            evolvesTo = null//evolvesTo?.id,
+        )
+    }
+}
 
 @Serializable
 data class AbilityItem(
@@ -49,12 +63,6 @@ data class Ability(
     val name: String,
     @SerialName(value = "url")
     val url: String,
-)
-
-@Serializable
-data class Items(
-    @SerialName(value = "items")
-    val item: String
 )
 
 @Serializable
@@ -83,12 +91,6 @@ data class Specie(
 
 @Serializable
 data class Stats(
-    @SerialName(value = "item")
-    val stat: StatItem,
-)
-
-@Serializable
-data class StatItem(
     @SerialName(value = "base_stat")
     val baseStats: String,
     @SerialName(value = "effort")
