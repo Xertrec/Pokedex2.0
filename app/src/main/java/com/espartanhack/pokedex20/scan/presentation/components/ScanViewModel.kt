@@ -2,6 +2,7 @@ package com.espartanhack.pokedex20.scan.presentation.components
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.espartanhack.pokedex20.core.domain.pokeHackAPI.APITokens
 import com.espartanhack.pokedex20.core.domain.pokeHackAPI.entity.ZoneEntity
 import com.espartanhack.pokedex20.core.domain.pokeHackAPI.httpClient
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -30,7 +31,7 @@ class ScanViewModel @Inject constructor() : ViewModel() {
         viewModelScope.launch {
             httpClient.use {
                 val zoneCode = data.split("/").last()
-                val zone: ZoneEntity = it.get("https://hackeps-poke-backend.azurewebsites.net/zones/$zoneCode").body()
+                val zone: ZoneEntity = it.get("${APITokens.API_URL}/zones/$zoneCode").body()
                 this@ScanViewModel.data.value = zone.name
             }
         }
