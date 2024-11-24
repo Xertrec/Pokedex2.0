@@ -1,11 +1,11 @@
 package com.espartanhack.pokedex20.core.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
+import com.espartanhack.pokedex20.capturarpokemon.CapturarPokemonScreen
+import com.espartanhack.pokedex20.core.pokemoncapturados.PokemonCapturadosScreen
 
 import com.espartanhack.pokedex20.pokedex.HomeScreen
 import com.espartanhack.pokedex20.pokedex.PokedexScreen
@@ -30,6 +30,12 @@ fun NavGraph(
         }
         composable<ScreenPokedex> {
             PokedexScreen(navController)
+        }
+        composable<ScreenPokemonCapturados> {
+            PokemonCapturadosScreen(navController)
+        }
+        composable<ScreenCapturarPokemon> {
+            CapturarPokemonScreen(navController)
         }
     }
 }
