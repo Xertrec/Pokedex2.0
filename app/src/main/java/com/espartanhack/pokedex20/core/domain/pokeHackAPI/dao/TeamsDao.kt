@@ -16,7 +16,9 @@ class TeamsDao @Inject constructor(
 ) {
 
     suspend fun getTeams(): List<TeamEntityApi> {
-        TODO()
+        val client = httpClient
+
+        return client.get("${APITokens.API_URL}/teams?token=query").body()
     }
 
     suspend fun getTeam(): TeamEntityApi {

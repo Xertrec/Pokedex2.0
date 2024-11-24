@@ -5,6 +5,8 @@ import com.espartanhack.pokedex20.core.domain.pokeHackAPI.APITokens
 import com.espartanhack.pokedex20.core.domain.pokeHackAPI.entity.EventEntity
 import com.espartanhack.pokedex20.core.domain.pokeHackAPI.httpClient
 import io.ktor.client.call.body
+import io.ktor.client.plugins.ClientRequestException
+import io.ktor.client.plugins.timeout
 import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody

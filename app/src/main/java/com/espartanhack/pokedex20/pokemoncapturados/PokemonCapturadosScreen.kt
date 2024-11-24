@@ -1,7 +1,9 @@
 package com.espartanhack.pokedex20.pokemoncapturados
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -40,7 +42,7 @@ fun PokemonCapturadosScreen(
     if (teamId == null) return
     val pokemonCapturados by viewModel.pokemonCapturados(teamId!!).collectAsStateWithLifecycle()
 
-    Box() {
+    Box {
         Image(
             painter = painterResource(id = R.drawable.pokedex_fondo), // Cambia al recurso de tu imagen
             contentDescription = "Imagen de fondo",
@@ -48,58 +50,14 @@ fun PokemonCapturadosScreen(
             modifier = Modifier.fillMaxSize()
         )
 
-        LazyColumn {
-
-            item {
-
-                Text(
-                    modifier = Modifier
-                        .offset { IntOffset(x=40, y=600) },
-
-                    text = "Pokémon" + "  " + "Pes  \n",
-                    color = Color.Black,
-                    fontSize = 24.sp,
-                    fontWeight = FontWeight.Bold)
-            }
-
-
-                items(pokemonCapturados, key = { it.id }) { pokemon ->
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp)
-                            .offset { IntOffset(x = 20, y = 540)  },
-
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-
-
-
-                        Text(
-                            text = pokemon.name + "  " + pokemon.weight,
-                            color = Color.Black,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-
-                    }
-
-
-
-
-                }
-
-        }
-
-
+        // Botón transparente encima del círculo azul
         Box(
             modifier = Modifier
                 .padding(start = 18.dp, top = 32.dp) // Ajusta la posición del botón
                 .align(Alignment.TopStart) // Posiciona el botón en la parte superior izquierda
         ) {
             Button(
-                onClick = { navController.navigate(
-                    ScreenScan
+                onClick = { navController.navigate(ScreenScan
                 ) // Navegar hacia atrás
                 },
                 colors = ButtonDefaults.buttonColors(
@@ -116,40 +74,118 @@ fun PokemonCapturadosScreen(
             }
         }
 
-        Text(
-            text = "Col·lecció Pokémon",
-            color = Color.Black, // Color del texto
-            fontSize = 35.sp, // Tamaño del texto
-            fontWeight = FontWeight.Bold, // Negrita
+        Column(
             modifier = Modifier
-                .align(Alignment.TopStart) // Alineado en la parte superior y centrado
-                .offset { IntOffset( x=90, y=395) }
-                .padding(top = 16.dp) // Margen desde la parte superior
-        )
-
-        Spacer(modifier = Modifier.height(16.dp)) // Espaciado entre los botones
-
-        // Botón para volver a la pantalla anterior (HomeScreen)
-        Button(
-            onClick = {
-                navController.navigate(ScreenHome) // Navegar hacia atrás
-            },
-            colors = ButtonDefaults.buttonColors(
-                containerColor = lightRed, // Fondo rojo flojo
-                contentColor = Color.Black // Color del texto
-            ),
-            modifier = Modifier
-                .width(300.dp) // Ajustamos el ancho del botón
-                .height(60.dp) // Altura del botón
-                .offset { IntOffset(x=100, y=2200) }
+                .fillMaxSize()
         ) {
-            Text(
-                text = "Inici",
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold
-            )
-        }
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(
+                        start = 16.dp,
+                        top = 196.dp
+                    )
+            ) {
+                Text(
+                    text = "Col·lecció",
+                    color = Color.Black,
+                    fontSize = 48.sp,
+                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.titleLarge,
+                    modifier = Modifier.padding(16.dp)
+                )
 
+                Row(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp),
+                    horizontalArrangement = Arrangement.SpaceAround
+                ) {
+                    LazyColumn(
+                        modifier = Modifier
+                            .weight(1f),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        item {
+                            Text(
+                                text = "Pokémon",
+                                color = Color.Black,
+                                fontSize = 32.sp,
+                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.titleMedium,
+                                modifier = Modifier.padding(16.dp)
+                            )
+                        }
+
+                        items(pokemonCapturados, key = { it.id }) { pokemon ->
+                            Text(
+                                text = pokemon.name,
+                                color = Color.Black,
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                style = MaterialTheme.typography.bodyLarge, // Aplica estilo
+                                modifier = Modifier
+                            )
+                        }
+                    }
+
+                    LazyColumn(
+                        modifier = Modifier
+                            .weight(1f),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        item {
+                            Text(
+                                text = "Índex",
+                                color = Color.Black,
+                                fontSize = 32.sp,
+                                fontWeight = FontWeight.Bold,
+                                style = MaterialTheme.typography.titleMedium,
+                                modifier = Modifier.padding(16.dp)
+                            )
+                        }
+
+
+                        items(pokemonCapturados, key = { it.id }) { pokemon ->
+                            Text(
+                                text = pokemon.id.toString(),
+                                color = Color.Black,
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                style = MaterialTheme.typography.bodyLarge, // Aplica estilo
+                                modifier = Modifier
+                            )
+                        }
+                    }
+                }
+            }
+
+            Button(
+                onClick = {
+                    navController.navigate(ScreenHome) // Navegar hacia atrás
+                },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = lightRed, // Fondo rojo flojo
+                    contentColor = Color.Black // Color del texto
+                ),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(
+                        bottom = 64.dp,
+                        end = 64.dp
+                    )
+                    .size(
+                        width = 300.dp,
+                        height = 60.dp
+                    )
+            ) {
+                Text(
+                    text = "Inici",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
     }
 
 }

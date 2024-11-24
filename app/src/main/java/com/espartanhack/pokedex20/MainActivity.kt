@@ -105,7 +105,6 @@ class MainActivity : ComponentActivity() {
                             }
                         }.flatten()
                     )
-
                     val team = apiTeamsDao.get().getTeam()
                     dbTeamsDao.get().upsertTeam(
                         TeamEntity(
@@ -126,7 +125,7 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                     )
-//                    prefs.saveBool(Prefs.INITIAL_SETUP, true)
+                    prefs.saveBool(Prefs.INITIAL_SETUP, true)
                 }
             }
         }

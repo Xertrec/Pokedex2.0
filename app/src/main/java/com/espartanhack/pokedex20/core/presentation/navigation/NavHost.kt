@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import com.espartanhack.pokedex20.capturarpokemon.CapturarPokemonScreen
 import com.espartanhack.pokedex20.pokemoncapturados.PokemonCapturadosScreen
 
-import com.espartanhack.pokedex20.pokedex.HomeScreen
+import com.espartanhack.pokedex20.home.HomeScreen
 import com.espartanhack.pokedex20.pokedex.PokedexScreen
 import com.espartanhack.pokedex20.scan.presentation.ScanScreen
 import kotlin.reflect.KClass

@@ -7,17 +7,21 @@ import com.espartanhack.pokedex20.core.data.db.dao.ZoneDao
 import com.espartanhack.pokedex20.core.data.db.entities.EventsEntity
 import com.espartanhack.pokedex20.core.data.db.entities.ZonesEntity
 import com.espartanhack.pokedex20.core.data.db.relations.CapturedPokemonsCrossRef
+import com.espartanhack.pokedex20.core.data.db.relations.ZoneTeamCrossRef
+import com.espartanhack.pokedex20.core.domain.classes.Prefs
 import com.espartanhack.pokedex20.core.domain.pokeHackAPI.dao.EventsDao
 import com.espartanhack.pokedex20.core.domain.pokeHackAPI.dao.ZonesDao
 import dagger.Lazy
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ScanViewModel @Inject constructor(
+    private val prefs: Lazy<Prefs>,
     private val pokemonDao: Lazy<PokemonDao>,
     private val zoneDaoDb: Lazy<ZoneDao>,
     private val zoneDao: Lazy<ZonesDao>,
@@ -44,24 +48,14 @@ class ScanViewModel @Inject constructor(
                     name = zone.name
                 )
             )
-            val event = eventDao.get().postEvent(zone.id)
-            zoneDaoDb.get().upsertEvent(
-                EventsEntity(
-                    teamId = event.teamId,
-                    capturedPokemonId = event.catchedPokemonId
+            zoneDaoDb.get().upsertZoneTeamCrossRef(
+                ZoneTeamCrossRef(
+                    zoneId = zone.id,
+                    teamId = prefs.get().getString(Prefs.TEAM_ID).first()!!,
+                    cooldown = zone.cooldown,
+                    lastRequest = zone.lastRequestsByTeam.last().timestamp
                 )
             )
-            if (event.catchedPokemonId != null) {
-                pokemonDao.get().upsertCatchedPokemons(
-                    event.pokemonsEvent.map { pokemon ->
-                        CapturedPokemonsCrossRef(
-                            id = event.catchedPokemonId,
-                            teamId = event.teamId,
-                            pokemonId = pokemon.pokemonId
-                        )
-                    }
-                )
-            }
             this@ScanViewModel.zoneId.value = zone.id
         }
     }

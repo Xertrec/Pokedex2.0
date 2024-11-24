@@ -1,4 +1,4 @@
-package com.espartanhack.pokedex20.pokedex
+package com.espartanhack.pokedex20.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -18,10 +18,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.espartanhack.pokedex20.R
-import com.espartanhack.pokedex20.capturarpokemon.CapturarPokemonScreen
 import com.espartanhack.pokedex20.core.presentation.navigation.ScreenCapturarPokemon
 import com.espartanhack.pokedex20.core.presentation.navigation.ScreenPokedex
 import com.espartanhack.pokedex20.core.presentation.navigation.ScreenScan
+import com.espartanhack.pokedex20.pokedex.lightRed
 
 
 @Composable
@@ -37,7 +37,7 @@ fun HomeScreen(navController: NavController) {
             modifier = Modifier.fillMaxSize()
         )
 
-        // Botón negro opaco encima del círculo azul
+        // Botón transparente encima del círculo azul
         Box(
             modifier = Modifier
                 .padding(start = 18.dp, top = 32.dp) // Ajusta la posición del botón

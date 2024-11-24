@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "77cd88a07732707df2d8005dea539105",
+    "identityHash": "d898b410d709daf4f71be135857a8d29",
     "entities": [
       {
         "tableName": "team_table",
@@ -82,7 +82,7 @@
       },
       {
         "tableName": "zone_team_cross_ref",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`zone_id` TEXT NOT NULL, `team_id` TEXT NOT NULL, `cooldown_period` REAL NOT NULL, `last_request` INTEGER NOT NULL, PRIMARY KEY(`zone_id`, `team_id`), FOREIGN KEY(`zone_id`) REFERENCES `zones_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`team_id`) REFERENCES `team_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`zone_id` TEXT NOT NULL, `team_id` TEXT NOT NULL, `cooldown_period` REAL NOT NULL, `last_request` TEXT NOT NULL, PRIMARY KEY(`zone_id`, `team_id`), FOREIGN KEY(`zone_id`) REFERENCES `zones_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`team_id`) REFERENCES `team_table`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "zoneId",
@@ -105,7 +105,7 @@
           {
             "fieldPath": "lastRequest",
             "columnName": "last_request",
-            "affinity": "INTEGER",
+            "affinity": "TEXT",
             "notNull": true
           }
         ],
@@ -920,7 +920,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '77cd88a07732707df2d8005dea539105')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd898b410d709daf4f71be135857a8d29')"
     ]
   }
 }

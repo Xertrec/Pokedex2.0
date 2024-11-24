@@ -3,12 +3,12 @@ package com.espartanhack.pokedex20.core.data.db.relations
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import com.espartanhack.pokedex20.core.data.db.entities.TeamEntity
+import com.espartanhack.pokedex20.core.data.db.entities.RequestsEntity
 import com.espartanhack.pokedex20.core.data.db.entities.ZonesEntity
 
 @Entity(
-    tableName = "zone_team_cross_ref",
-    primaryKeys = ["zone_id", "team_id"],
+    tableName = "zone_requests_relation",
+    primaryKeys = ["zone_id", "request_id"],
     foreignKeys = [
         ForeignKey(
             entity = ZonesEntity::class,
@@ -16,19 +16,15 @@ import com.espartanhack.pokedex20.core.data.db.entities.ZonesEntity
             childColumns = ["zone_id"]
         ),
         ForeignKey(
-            entity = TeamEntity::class,
+            entity = RequestsEntity::class,
             parentColumns = ["id"],
-            childColumns = ["team_id"]
+            childColumns = ["request_id"]
         )
     ]
 )
-data class ZoneTeamCrossRef(
+data class ZoneRequestsCrossRef(
     @ColumnInfo(name = "zone_id")
     val zoneId: String,
-    @ColumnInfo(name = "team_id")
-    val teamId: String,
-    @ColumnInfo(name = "cooldown_period")
-    val cooldown: Float,
-    @ColumnInfo(name = "last_request")
-    val lastRequest: String
+    @ColumnInfo(name = "request_id")
+    val requestId: Int
 )
