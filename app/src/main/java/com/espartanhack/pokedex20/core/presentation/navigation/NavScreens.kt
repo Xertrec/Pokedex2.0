@@ -13,3 +13,6 @@ object ScreenPokedex
 
 @Serializable
 object ScreenPokemonCapturados
+
+@Serializable
+object ScreenCapturarPokemon

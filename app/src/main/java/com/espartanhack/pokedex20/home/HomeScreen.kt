@@ -6,8 +6,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.espartanhack.pokedex20.R
+import com.espartanhack.pokedex20.capturarpokemon.CapturarPokemonScreen
+import com.espartanhack.pokedex20.core.presentation.navigation.ScreenCapturarPokemon
 import com.espartanhack.pokedex20.core.presentation.navigation.ScreenPokedex
 import com.espartanhack.pokedex20.core.presentation.navigation.ScreenScan
 
@@ -31,7 +31,7 @@ fun HomeScreen(navController: NavController) {
     ) {
         // Imagen de fondo
         Image(
-            painter = painterResource(id = R.drawable.pokedex_fondo), // Cambia al recurso de tu imagen
+            painter = painterResource(id = R.drawable.pokedex_pokedex), // Cambia al recurso de tu imagen
             contentDescription = "Imagen de fondo",
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize()
@@ -74,7 +74,7 @@ fun HomeScreen(navController: NavController) {
             // Botón para mostrar la lista de Pokémon capturados
             Button(
                 onClick = {
-                    // Navegar hacia atrás
+                    navController.navigate(ScreenCapturarPokemon)
                 },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = lightRed, // Fondo rojo flojo
@@ -105,7 +105,7 @@ fun HomeScreen(navController: NavController) {
                     .height(60.dp) // Altura del botón
             ) {
                 Text(
-                    text = "Pokédex",
+                    text = "Pokémons",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )
@@ -114,23 +114,7 @@ fun HomeScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(16.dp)) // Espaciado entre los botones
 
             // Botón para volver a la pantalla anterior (HomeScreen)
-            Button(
-                onClick = {
-                },
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = lightRed, // Fondo rojo flojo
-                    contentColor = Color.Black // Color del texto
-                ),
-                modifier = Modifier
-                    .width(300.dp) // Ajustamos el ancho del botón
-                    .height(60.dp) // Altura del botón
-            ) {
-                Text(
-                    text = "Equips",
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
+
         }
     }
 }

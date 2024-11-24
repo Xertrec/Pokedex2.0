@@ -107,7 +107,7 @@ fun PokedexScreen(navController: NavController) {
                     .height(60.dp) // Altura del botón
             ) {
                 Text(
-                    text = "Volver Atrás",
+                    text = "Inici",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )
