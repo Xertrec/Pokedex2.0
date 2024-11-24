@@ -2,6 +2,7 @@ package com.espartanhack.pokedex20.pokedex
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -15,8 +16,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.draw.clip
 import androidx.navigation.NavController
 import com.espartanhack.pokedex20.R
+import com.espartanhack.pokedex20.core.presentation.navigation.ScreenPokemonCapturados
+import com.espartanhack.pokedex20.core.presentation.navigation.ScreenScan
 
 // Definir el color rojo flojo (si no está definido)
 val lightRed = Color(0xFFF8C8C8) // Ajusta el código hexadecimal si es necesario
@@ -34,6 +38,31 @@ fun PokedexScreen(navController: NavController) {
             modifier = Modifier.fillMaxSize()
         )
 
+        // Botón negro opaco encima del círculo azul
+        Box(
+            modifier = Modifier
+                .padding(start = 18.dp, top = 32.dp) // Ajusta la posición del botón
+                .align(Alignment.TopStart) // Posiciona el botón en la parte superior izquierda
+        ) {
+            Button(
+                onClick = { navController.navigate(
+                    ScreenScan
+                ) // Navegar hacia atrás
+                },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Transparent, // Color opaco negro
+
+                ),
+                modifier = Modifier
+                    .size(75.dp) // Ajusta el tamaño del botón
+                    .clip(CircleShape) // Para hacerlo redondo
+            )
+
+            {
+
+            }
+        }
+
         // Contenedor de los botones
         Column(
             modifier = Modifier
@@ -44,7 +73,7 @@ fun PokedexScreen(navController: NavController) {
         ) {
             // Botón para mostrar la lista de Pokémon capturados
             Button(
-                onClick = {
+                onClick = { navController.navigate(ScreenPokemonCapturados)
                     // Acción al pulsar el botón
                 },
                 colors = ButtonDefaults.buttonColors(

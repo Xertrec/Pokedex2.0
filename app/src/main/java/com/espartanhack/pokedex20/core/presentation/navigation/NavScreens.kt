@@ -10,3 +10,6 @@ object ScreenScan
 
 @Serializable
 object ScreenPokedex
+
+@Serializable
+object ScreenPokemonCapturados

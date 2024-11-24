@@ -54,10 +54,14 @@ fun HomeScreen(navController: NavController) {
                 modifier = Modifier
                     .size(75.dp) // Ajusta el tamaño del botón
                     .clip(CircleShape) // Para hacerlo redondo
-            ) {
+            )
+
+            {
 
             }
         }
+
+
 
         // Contenedor de los botones (que ya tenías anteriormente)
         Column(
@@ -68,6 +72,26 @@ fun HomeScreen(navController: NavController) {
             horizontalAlignment = Alignment.Start // Alineación de los botones a la izquierda
         ) {
             // Botón para mostrar la lista de Pokémon capturados
+            Button(
+                onClick = {
+                    // Navegar hacia atrás
+                },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = lightRed, // Fondo rojo flojo
+                    contentColor = Color.Black // Color del texto
+                ),
+                modifier = Modifier
+                    .width(300.dp) // Ajustamos el ancho del botón
+                    .height(60.dp) // Altura del botón
+            ) {
+                Text(
+                    text = "Capturar Pokémon",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp)) // Espaciado entre los botones
+
             Button(
                 onClick = {
                     navController.navigate(ScreenPokedex) // Navegar hacia atrás
