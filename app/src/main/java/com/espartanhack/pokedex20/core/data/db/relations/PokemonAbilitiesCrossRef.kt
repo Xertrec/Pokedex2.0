@@ -17,7 +17,7 @@ import com.espartanhack.pokedex20.core.data.db.entities.PokemonEntity
         ),
         ForeignKey(
             entity = PokemonAbilitiesEntity::class,
-            parentColumns = ["abilityName"],
+            parentColumns = ["ability_name"],
             childColumns = ["ability_name"]
         )
     ]

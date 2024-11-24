@@ -8,17 +8,17 @@ import com.espartanhack.pokedex20.core.data.db.entities.TournamentCombatEntity
 
 @Entity(
     tableName = "combat_team_cross_ref",
-    primaryKeys = ["combatId", "teamId"],
+    primaryKeys = ["combat_id", "team_id"],
     foreignKeys = [
         ForeignKey(
             entity = TournamentCombatEntity::class,
             parentColumns = ["id"],
-            childColumns = ["combatId"]
+            childColumns = ["combat_id"]
         ),
         ForeignKey(
             entity = TeamEntity::class,
             parentColumns = ["id"],
-            childColumns = ["teamId"]
+            childColumns = ["team_id"]
         )
     ]
 )

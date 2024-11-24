@@ -10,12 +10,16 @@ import androidx.navigation.compose.rememberNavController
 import com.espartanhack.pokedex20.pokedex.HomeScreen
 import com.espartanhack.pokedex20.pokedex.PokedexScreen
 import com.espartanhack.pokedex20.scan.presentation.ScanScreen
+import kotlin.reflect.KClass
 
 @Composable
-fun NavGraph(navController: NavHostController) {
+fun NavGraph(
+    startScreen: KClass<*>,
+    navController: NavHostController
+) {
     NavHost(
         navController = navController,
-        startDestination = ScreenHome
+        startDestination = startScreen
     ) {
         composable<ScreenHome> {
             HomeScreen(navController)

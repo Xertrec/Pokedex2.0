@@ -15,7 +15,7 @@ import com.espartanhack.pokedex20.core.data.db.relations.CapturedPokemonsCrossRe
             childColumns = ["team_id"]
         ),
         ForeignKey(
-            entity = CapturedPokemonsCrossRef::class,
+            entity = PokemonEntity::class,
             parentColumns = ["id"],
             childColumns = ["captured_pokemon_id"]
         )

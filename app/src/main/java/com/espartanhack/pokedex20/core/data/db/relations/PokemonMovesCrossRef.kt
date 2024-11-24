@@ -17,7 +17,7 @@ import com.espartanhack.pokedex20.core.data.db.entities.PokemonMovesEntity
         ),
         ForeignKey(
             entity = PokemonMovesEntity::class,
-            parentColumns = ["name"],
+            parentColumns = ["move_name"],
             childColumns = ["move_name"]
         )
     ]

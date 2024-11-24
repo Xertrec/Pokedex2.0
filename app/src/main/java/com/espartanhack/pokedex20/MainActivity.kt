@@ -15,8 +15,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.espartanhack.pokedex20.core.domain.classes.Prefs
 import com.espartanhack.pokedex20.core.presentation.navigation.NavGraph
+import com.espartanhack.pokedex20.core.presentation.navigation.ScreenHome
 import com.espartanhack.pokedex20.core.presentation.theme.Pokedex20Theme
+import com.espartanhack.pokedex20.pokedex.HomeScreen
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -30,14 +33,15 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            val initialSetup by prefs.getBool(Prefs.INITIAL_SETUP)
-                .collectAsState(initial = Prefs.INITIAL_SETUP_DEFAULT)
-
             Pokedex20Theme {
-                NavGraph(rememberNavController())
+                NavGraph(
+                    startScreen = ScreenHome::class,
+                    navController = rememberNavController()
+                )
             }
 
             LaunchedEffect(Unit) {
+                val initialSetup = prefs.getBool(Prefs.INITIAL_SETUP).first()
                 if (!initialSetup) {
                 }
             }

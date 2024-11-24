@@ -8,17 +8,17 @@ import com.espartanhack.pokedex20.core.data.db.entities.PokemonSpeciesEntity
 
 @Entity(
     tableName = "pokemon_species_cross_ref",
-    primaryKeys = ["pokemonId", "speciesName"],
+    primaryKeys = ["pokemon_id", "species_name"],
     foreignKeys = [
         ForeignKey(
             entity = PokemonEntity::class,
             parentColumns = ["id"],
-            childColumns = ["pokemonId"]
+            childColumns = ["pokemon_id"]
         ),
         ForeignKey(
             entity = PokemonSpeciesEntity::class,
             parentColumns = ["species_name"],
-            childColumns = ["speciesName"]
+            childColumns = ["species_name"]
         )
     ]
 )

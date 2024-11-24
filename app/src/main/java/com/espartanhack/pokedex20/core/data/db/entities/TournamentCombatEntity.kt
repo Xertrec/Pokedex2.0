@@ -12,11 +12,6 @@ import androidx.room.PrimaryKey
             entity = TournamentEntity::class,
             parentColumns = ["id"],
             childColumns = ["tournament_id"]
-        ),
-        ForeignKey(
-            entity = TeamEntity::class,
-            parentColumns = ["id"],
-            childColumns = ["team_id"]
         )
     ]
 )

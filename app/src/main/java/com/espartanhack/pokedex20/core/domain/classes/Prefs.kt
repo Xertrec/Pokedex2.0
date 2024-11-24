@@ -28,6 +28,30 @@ class Prefs @Inject constructor(
     private val Context.dataStore by preferencesDataStore(PREFS_NAME)
 
     /**
+     * Function that saves a string in the preferences.
+     *
+     * @param key The key of the preference.
+     * @param value The value to put in the preference.
+     */
+    suspend fun saveString(key: String, value: String) {
+        appContext.dataStore.edit { preferences ->
+            preferences[stringPreferencesKey(key)] = value
+        }
+    }
+
+    /**
+     * Function that gets a string from the preferences.
+     *
+     * @param key The key of the preference.
+     * @param defaultValue The value to return if the preference is not found.
+     *
+     * @return The value of the preference.
+     */
+    fun getString(key: String, defaultValue: String? = null) = appContext.dataStore.data.map { preferences ->
+        preferences[stringPreferencesKey(key)] ?: defaultValue
+    }
+
+    /**
      * Function that saves a boolean in the preferences.
      *
      * @param key The key of the preference.
@@ -48,6 +72,8 @@ class Prefs @Inject constructor(
      */
     companion object {
         private const val PREFS_NAME = "PokePrefs"
+
+        const val TEAM_ID = "team_id"
 
         const val INITIAL_SETUP = "initial_setup"
         const val INITIAL_SETUP_DEFAULT = false

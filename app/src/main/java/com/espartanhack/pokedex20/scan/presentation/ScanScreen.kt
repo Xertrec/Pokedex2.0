@@ -60,11 +60,6 @@ fun ScanScreen(
             },
         )
 
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-        )
-
         Image(
             painter = painterResource(id = R.drawable.pokedex_cam_sinfondo), // Cambia por el ID de tu recurso de imagen
             contentDescription = "Pokédex background",
